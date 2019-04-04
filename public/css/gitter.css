@@ -1,0 +1,389 @@
+.djs-container {
+  background-color: white;
+}
+
+.djs-connection .djs-hit {
+    pointer-events: none;
+}
+
+.djs-outline {
+  shape-rendering: geometricPrecision !important;
+}
+
+.djs-connection.selected .djs-outline {
+  stroke: transparent !important;
+}
+
+.djs-element.selected .djs-outline {
+  stroke: rgba(0, 0, 255, 0.5);
+}
+
+.djs-element.hover .djs-outline {
+  stroke: blue;
+}
+
+.djs-shape.connect-ok .djs-visual > :nth-child(1) {
+  fill: #fff /* light-green */ !important;
+}
+
+.djs-shape.connect-not-ok .djs-visual > :nth-child(1),
+.djs-shape.drop-not-ok .djs-visual > :nth-child(1) {
+  stroke: orangered /* light-red */ !important;
+  fill: white !important;
+}
+
+.djs-shape.new-parent .djs-visual > :nth-child(1) {
+  fill: none !important;
+}
+
+svg.drop-not-ok {
+  background: white /* light-red */ !important;
+}
+
+svg.new-parent {
+  background: white /* light-blue */ !important;
+}
+
+.djs-connection.connect-ok .djs-visual > :nth-child(1),
+.djs-connection.drop-ok .djs-visual > :nth-child(1) {
+  stroke: orange /* light-green */ !important;
+}
+
+.djs-connection.connect-not-ok .djs-visual > :nth-child(1),
+.djs-connection.drop-not-ok .djs-visual > :nth-child(1) {
+  stroke: yellow /* light-red */ !important;
+}
+
+.drop-not-ok,
+.connect-not-ok {
+  cursor: inherit;
+}
+
+/* .djs-dragger .djs-visual circle,
+.djs-dragger .djs-visual path,
+.djs-dragger .djs-visual polygon,
+.djs-dragger .djs-visual polyline,
+.djs-dragger .djs-visual rect,
+.djs-dragger .djs-visual text {
+  fill: none !important;
+  stroke: red !important;
+} */
+
+/**
+ * popup / palette styles
+ */
+.djs-popup, .djs-palette {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/**
+ * palette
+ */
+
+.djs-palette {
+  position: absolute;
+  left: 15px;
+  bottom: 15px;
+  top: inherit;
+
+  width: 46px;
+}
+
+.djs-container.two-column .djs-palette.open {
+  width: 46px;
+}
+
+.djs-palette .separator {
+  margin: 0;
+  padding-top: 5px;
+  border: none;
+  border-bottom: solid 1px #999;
+  clear: both;
+}
+
+.djs-palette .entry:before {
+  vertical-align: middle;
+}
+
+.djs-palette .djs-palette-toggle {
+  cursor: pointer;
+}
+
+.djs-palette .djs-palette-toggle {
+  display: none;
+}
+
+.djs-palette .entry {
+  color: rgba(0, 0, 255, 0.5);
+  font-size: 30px;
+  text-align: center;
+}
+
+.djs-palette .entry {
+  float: left;
+}
+
+.djs-palette .entry img {
+  max-width: 100%;
+}
+
+.djs-palette.open .djs-palette-toggle {
+  height: 10px;
+}
+
+.djs-palette .djs-palette-entries:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.djs-palette:not(.open) .djs-palette-entries {
+  display: none;
+}
+
+.djs-palette .djs-palette-toggle:hover {
+  background: #666;
+}
+
+.djs-palette .entry:hover {
+  color: #fff;
+}
+
+.highlighted-entry {
+  color: orange !important;
+}
+
+.djs-palette:not(.open) {
+  overflow: hidden;
+}
+
+.djs-palette .entry,
+.djs-palette .djs-palette-toggle {
+  width: 46px;
+  height: 46px;
+  line-height: 46px;
+  cursor: default;
+}
+
+.djs-palette.open .djs-palette-toggle {
+  width: 100%;
+}
+
+/**
+ * #fff doesn't work in FF, we have to use %23fff instead
+ */
+.icon-gitter-emitter {
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" stroke-width="5" stroke="rgba(0, 0, 255, 0.5)" fill="none" viewBox="0 0 120 120"><circle cx="60" cy="60" r="40"/></svg>');
+}
+
+.icon-gitter-emitter:hover {
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" stroke-width="5" stroke="blue" fill="none" viewBox="0 0 120 120"><circle cx="60" cy="60" r="40"/></svg>');
+}
+
+.icon-gitter-listener {
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" stroke-width="5" stroke="rgba(0, 0, 255, 0.5)" fill="none" viewBox="0 0 120 120"><circle cx="60" cy="60" r="40"/><circle cx="60" cy="60" r="27"/></svg>');
+}
+
+.icon-gitter-listener:hover {
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" stroke-width="5" stroke="blue" fill="none" viewBox="0 0 120 120"><circle cx="60" cy="60" r="40"/><circle stroke="blue" cx="60" cy="60" r="27"/></svg>');
+}
+
+.icon-lasso-tool {
+
+}
+
+/**
+ * context-pad
+ */
+.djs-overlay-context-pad {
+  width: 72px;
+}
+
+.djs-context-pad {
+  position: absolute;
+  display: none;
+  pointer-events: none;
+}
+
+.djs-context-pad .entry {
+  width: 22px;
+  height: 22px;
+  text-align: center;
+  display: inline-block;
+  font-size: 22px;
+  margin: 0;
+
+  border-radius: 0;
+
+  cursor: default;
+
+  background-color: transparent;
+  box-shadow: none;
+
+  pointer-events: all;
+  color: #999;
+}
+
+.djs-context-pad .entry:before {
+  vertical-align: top;
+}
+
+.djs-context-pad .entry:hover {
+  background: blue;
+  color: white;
+}
+
+.djs-context-pad.open {
+  display: block;
+}
+
+/**
+* Selection box style
+*
+*/
+.djs-lasso-overlay {
+  fill: #fff;
+  fill-opacity: 0.1;
+
+  stroke-dasharray: 6 6;
+  stroke: #fff;
+
+  shape-rendering: crispEdges;
+  pointer-events: none;
+}
+
+/**
+ * drag styles
+ */
+.djs-dragger .djs-visual circle,
+.djs-dragger .djs-visual path,
+.djs-dragger .djs-visual polygon,
+.djs-dragger .djs-visual polyline,
+.djs-dragger .djs-visual rect,
+.djs-dragger .djs-visual text {
+  fill: none !important;
+  stroke: rgba(0, 0, 255, 0.5) !important;
+}
+
+/**
+ * notifications styles
+ */
+.notifications {
+  position: absolute;
+  top: 10px;
+}
+
+.notifications .notification {
+  color: #999;
+  border-right: solid 1px #999;
+  background: rgba(0, 0, 0, 0.75);
+  padding: 10px;
+  text-align: right;
+}
+
+.notifications .notification:hover {
+  cursor: default !important;
+  color: #fff;
+  border-right: solid 1px #fff;
+}
+
+/**
+ * loading overlay
+ */
+.loading-overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 100000;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.5);
+  color: blue;
+  font-size: 18px;
+}
+
+.loading-overlay p {
+  margin: 4px;
+}
+
+.loading-overlay.hidden {
+  display: none;
+}
+
+/** radial menu */
+.radial-menu .entry {
+  position: absolute;
+  border-radius: 100%;
+  border: solid 1.5px blue;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: blue;
+  font-size: 6px;
+  user-select: none;
+  cursor: default;
+}
+
+.radial-menu .entry svg {
+  fill: blue;
+  stroke: blue;
+}
+
+.radial-menu .entry:hover,
+.radial-menu .entry.active {
+  border-color: blue;
+  color: white;
+  background-color: blue;
+}
+
+.radial-menu .entry:hover svg,
+.radial-menu .entry.active svg {
+  fill: blue !important;
+  stroke: blue !important;
+}
+
+.radial-menu .entry-remove {
+  border-color: rgba(0, 0, 255, 0.5);
+}
+
+.radial-menu .entry-remove svg {
+  fill: rgba(0, 0, 255, 0.5);
+  stroke: rgba(0, 0, 255, 0.5);
+}
+
+.radial-menu .entry-remove:hover svg {
+  fill: white !important;
+  stroke: white !important;
+}
+
+.radial-menu .entry svg {
+  width: 75%;
+}
+
+.kit-select {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  color: blue;
+  cursor: default;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.kit-select .preset {
+  margin-left: 10px;
+}
+
+.kit-select .preset.active {
+  background: blue;
+  color: white;
+}
