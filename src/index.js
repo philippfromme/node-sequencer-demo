@@ -4,31 +4,60 @@ import { isEmitter } from 'gitter/src/util/GitterUtil';
 
 import UrlShare from './UrlShare';
 
-const container = document.getElementById('container');
+const container = document.getElementById('container'),
+      mobile = document.getElementById('mobile'),
+      buttonEnableAudio = document.getElementById('enable-audio'),
+      reveal = document.getElementById('reveal');
 
+function isMobileDevice() {
+  return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+}
 
-const gitter = new Gitter({
-  canvas: {
-    container
-  },
-  keyboard: {
-    bindTo: document
-  }
-});
+function init() {
+  const gitter = new Gitter({
+    canvas: {
+      container
+    },
+    keyboard: {
+      bindTo: document
+    }
+  });
 
-// intercept normal create
-const urlShare = new UrlShare(gitter);
-urlShare.intercept();
+  gitter.get('eventBus').on('gitter.sounds.loaded', () => {
+    reveal.classList.add('hidden');
 
-gitter.create();
+    gitter.get('audio').start();
 
-const canvas = gitter.get('canvas');
-const elementRegistry = gitter.get('elementRegistry');
-const selection = gitter.get('selection');
+    gitter.get('canvas').zoom('fit-viewport');
+  });
 
-const emitter = elementRegistry.filter(e => isEmitter(e))[0];
-selection.select(emitter);
+  // intercept normal create
+  const urlShare = new UrlShare(gitter);
+  urlShare.intercept();
 
-canvas.zoom(1.5);
+  gitter.create();
 
-window.gitter = gitter;
+  const canvas = gitter.get('canvas');
+  const elementRegistry = gitter.get('elementRegistry');
+  const selection = gitter.get('selection');
+
+  const emitter = elementRegistry.filter(e => isEmitter(e))[0];
+  selection.select(emitter);
+
+  canvas.zoom(1.5);
+
+  window.gitter = gitter;
+}
+
+if (isMobileDevice()) {
+  mobile.classList.remove('hidden');
+} else {
+  buttonEnableAudio.classList.remove('hidden');
+
+  buttonEnableAudio.addEventListener('click', () => {
+    buttonEnableAudio.classList.add('hidden');
+
+    init();
+  });
+
+}

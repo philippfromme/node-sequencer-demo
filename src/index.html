@@ -127,12 +127,57 @@
         float: right;
         cursor: pointer;
       }
+
+      #enable-audio {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: 'Roboto Mono', monospace;
+        font-weight: bold;
+      }
+
+      #enable-audio.hidden {
+        display: none;
+      }
+
+      #reveal {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: white;
+        opacity: 1;
+        transition: all 0.5s ease-in-out;
+      }
+
+      #reveal.hidden {
+        pointer-events: none;
+        opacity: 0;
+      }
+
+      #mobile {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: blue;
+        text-align: center;
+      }
+
+      #mobile.hidden {
+        display: none;
+      }
     </style>
   </head>
   <body>
     <div id="container">
       <!-- modeler goes here -->
     </div>
+    <div id="reveal"></div>
+    <div id="mobile" class="hidden">Sorry, I don't work on mobile devices. :-(</div>
+    <button id="enable-audio" class="pill pill-button hidden">Enable Audio</button>
     <div id="logo">
       <svg viewBox="-10 -10 220 220" width="46" height="46">
         <circle fill="blue" cx="50" cy="10" r="20"/>
@@ -150,6 +195,5 @@
           stroke-width="10" stroke="blue"/>
       </svg>
     </div>
-    <script src="./index.js"></script>
   </body>
 </html>
