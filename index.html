@@ -111,4 +111,46 @@
       #close-share-dialog {
         float: right;
         cursor: pointer;
-      }</style></head><body><div id="container"></div><div id="logo"><svg viewBox="-10 -10 220 220" width="46" height="46"><circle fill="blue" cx="50" cy="10" r="20"/><circle fill="blue" cx="140" cy="10" r="20"/><circle fill="blue" cx="10" cy="100" r="20"/><circle fill="blue" cx="100" cy="100" r="20"/><circle fill="blue" cx="190" cy="100" r="20"/><circle fill="blue" cx="60" cy="190" r="20"/><circle fill="blue" cx="150" cy="190" r="20"/><line x1="50" y1="10" x2="150" y2="190" stroke-width="10" stroke="blue"/><line x1="10" y1="100" x2="60" y2="190" stroke-width="10" stroke="blue"/><line x1="140" y1="10" x2="190" y2="100" stroke-width="10" stroke="blue"/></svg></div><script src="./index.js"></script><script src="js/app.js"></script></body></html>
+      }
+
+      #enable-audio {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: 'Roboto Mono', monospace;
+        font-weight: bold;
+      }
+
+      #enable-audio.hidden {
+        display: none;
+      }
+
+      #reveal {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: white;
+        opacity: 1;
+        transition: all 0.5s ease-in-out;
+      }
+
+      #reveal.hidden {
+        pointer-events: none;
+        opacity: 0;
+      }
+
+      #mobile {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: blue;
+        text-align: center;
+      }
+
+      #mobile.hidden {
+        display: none;
+      }</style></head><body><div id="container"></div><div id="reveal"></div><div id="mobile" class="hidden">Sorry, I don't work on mobile devices. :-(</div><button id="enable-audio" class="pill pill-button hidden">Enable Audio</button><div id="logo"><svg viewBox="-10 -10 220 220" width="46" height="46"><circle fill="blue" cx="50" cy="10" r="20"/><circle fill="blue" cx="140" cy="10" r="20"/><circle fill="blue" cx="10" cy="100" r="20"/><circle fill="blue" cx="100" cy="100" r="20"/><circle fill="blue" cx="190" cy="100" r="20"/><circle fill="blue" cx="60" cy="190" r="20"/><circle fill="blue" cx="150" cy="190" r="20"/><line x1="50" y1="10" x2="150" y2="190" stroke-width="10" stroke="blue"/><line x1="10" y1="100" x2="60" y2="190" stroke-width="10" stroke="blue"/><line x1="140" y1="10" x2="190" y2="100" stroke-width="10" stroke="blue"/></svg></div><script src="js/app.js"></script></body></html>
