@@ -14,6 +14,10 @@ function isMobileDevice() {
 }
 
 function init() {
+  buttonEnableAudio.classList.add('hidden');
+
+  window.removeEventListener('keydown', onKeydown);
+
   const gitter = new Gitter({
     canvas: {
       container
@@ -49,15 +53,20 @@ function init() {
   window.gitter = gitter;
 }
 
+const onKeydown = (e) => {
+
+  // space
+  if (e.keyCode === 32) {
+    init();
+  }
+};
+
 if (isMobileDevice()) {
   mobile.classList.remove('hidden');
 } else {
   buttonEnableAudio.classList.remove('hidden');
 
-  buttonEnableAudio.addEventListener('click', () => {
-    buttonEnableAudio.classList.add('hidden');
+  buttonEnableAudio.addEventListener('click', init);
 
-    init();
-  });
-
+  window.addEventListener('keydown', onKeydown);
 }
