@@ -175,19 +175,19 @@ svg.new-parent {
 /**
  * #fff doesn't work in FF, we have to use %23fff instead
  */
-.icon-gitter-emitter {
+.icon-node-sequencer-emitter {
   background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" stroke-width="5" stroke="rgba(0, 0, 255, 0.5)" fill="none" viewBox="0 0 120 120"><circle cx="60" cy="60" r="40"/></svg>');
 }
 
-.icon-gitter-emitter:hover {
+.icon-node-sequencer-emitter:hover {
   background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" stroke-width="5" stroke="blue" fill="none" viewBox="0 0 120 120"><circle cx="60" cy="60" r="40"/></svg>');
 }
 
-.icon-gitter-listener {
+.icon-node-sequencer-listener {
   background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" stroke-width="5" stroke="rgba(0, 0, 255, 0.5)" fill="none" viewBox="0 0 120 120"><circle cx="60" cy="60" r="40"/><circle cx="60" cy="60" r="27"/></svg>');
 }
 
-.icon-gitter-listener:hover {
+.icon-node-sequencer-listener:hover {
   background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" stroke-width="5" stroke="blue" fill="none" viewBox="0 0 120 120"><circle cx="60" cy="60" r="40"/><circle stroke="blue" cx="60" cy="60" r="27"/></svg>');
 }
 
