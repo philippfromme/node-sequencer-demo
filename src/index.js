@@ -1,6 +1,6 @@
-import Gitter from 'gitter';
+import NodeSequencer from 'node-sequencer';
 
-import { isEmitter } from 'gitter/src/util/GitterUtil';
+import { isEmitter } from 'node-sequencer/src/util/NodeSequencerUtil';
 
 import UrlShare from './UrlShare';
 
@@ -18,7 +18,7 @@ function init() {
 
   window.removeEventListener('keydown', onKeydown);
 
-  const gitter = new Gitter({
+  const nodeSequencer = new NodeSequencer({
     canvas: {
       container
     },
@@ -27,30 +27,30 @@ function init() {
     }
   });
 
-  gitter.get('eventBus').on('gitter.sounds.loaded', () => {
+  nodeSequencer.get('eventBus').on('nodeSequencer.sounds.loaded', () => {
     reveal.classList.add('hidden');
 
-    gitter.get('audio').start();
+    nodeSequencer.get('audio').start();
 
-    gitter.get('canvas').zoom('fit-viewport');
+    nodeSequencer.get('canvas').zoom('fit-viewport');
   });
 
   // intercept normal create
-  const urlShare = new UrlShare(gitter);
+  const urlShare = new UrlShare(nodeSequencer);
   urlShare.intercept();
 
-  gitter.create();
+  nodeSequencer.create();
 
-  const canvas = gitter.get('canvas');
-  const elementRegistry = gitter.get('elementRegistry');
-  const selection = gitter.get('selection');
+  const canvas = nodeSequencer.get('canvas');
+  const elementRegistry = nodeSequencer.get('elementRegistry');
+  const selection = nodeSequencer.get('selection');
 
   const emitter = elementRegistry.filter(e => isEmitter(e))[0];
   selection.select(emitter);
 
   canvas.zoom(1.5);
 
-  window.gitter = gitter;
+  window.nodeSequencer = nodeSequencer;
 }
 
 const onKeydown = (e) => {

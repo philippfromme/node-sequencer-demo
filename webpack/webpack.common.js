@@ -16,7 +16,7 @@ module.exports = {
     new CopyWebpackPlugin([
       { from: Path.resolve(__dirname, '../public'), to: 'public' },
       { from: Path.resolve(__dirname, '../assets/img'), to: 'public/img' },
-      { from: Path.resolve(__dirname, '../node_modules/gitter/assets'), to: 'public' }
+      { from: Path.resolve(__dirname, '../node_modules/node-sequencer/assets'), to: 'public' }
     ]),
     new HtmlWebpackPlugin({
       template: Path.resolve(__dirname, '../src/index.html')

@@ -1,4 +1,4 @@
-# Gitter
+# Node Sequencer
 
 A node-based sequencer for the web.
 

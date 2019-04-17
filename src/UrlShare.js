@@ -8,11 +8,11 @@ import Clipboard from 'clipboard';
 const pako = require('pako');
 const zlib = require('zlib');
 
-const BASE_URL = 'https://philippfromme.github.io/gitter-demo/?';
+const BASE_URL = 'https://philippfromme.github.io/node-sequencer-demo/?';
 
 export default class UrlShare {
-  constructor(gitter) {
-    this._gitter = gitter;
+  constructor(nodeSequencer) {
+    this._nodeSequencer = nodeSequencer;
 
     this.url = null;
 
@@ -20,7 +20,7 @@ export default class UrlShare {
   }
 
   _init() {
-    const $container = this._gitter.get('canvas').getContainer();
+    const $container = this._nodeSequencer.get('canvas').getContainer();
 
     const $el = domify(
       `<div id="share" class="pill pill-button">
@@ -98,7 +98,7 @@ export default class UrlShare {
   }
 
   generateUrl(done) {
-    const config = this._gitter.save();
+    const config = this._nodeSequencer.save();
 
     zlib.deflate(config, (err, buffer) => {
       if (!err) {
@@ -122,7 +122,7 @@ export default class UrlShare {
       if (!err) {
         console.log(buffer.toString());
 
-        this._gitter.load(buffer.toString());
+        this._nodeSequencer.load(buffer.toString());
       } else {
         console.log(err);
       }
